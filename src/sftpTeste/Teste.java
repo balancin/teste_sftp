@@ -27,7 +27,7 @@ public class Teste {
 			}
 		}
     }
-	
+	//http://camel.apache.org/file2.html
 	public static void main(String args[]){ 
 		
 		try {
@@ -39,11 +39,13 @@ public class Teste {
 		RouteBuilder rb = new RouteBuilder() {
 	        @Override
 	        public void configure() throws Exception {
-				from("file:/Users/Backup_fblsilva/Downloads/tmp?noop=true")
+				from("file:/Users/balancin/Downloads/testes?noop=true")
 //				from("sftp://10.133.16.2//home/aut_asandro/cteste?username=aut_asandro&password=q1w2e3&idempotent=true&passiveMode=true&noop=true")
 		        .convertBodyTo(String.class) 
 		        .aggregate(constant(true)).completionSize(10).completionTimeout(10000L).groupExchanges() 
-		        .process(new FileProcessor()); 
+		        .process(new FileProcessor(){
+		        	
+		        }); 
 	        }
 		};
 
